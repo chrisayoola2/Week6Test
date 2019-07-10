@@ -3,9 +3,11 @@ package com.example.week6test;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Url;
 
 public class RetrofitSchool {
     public static final String BASE_URL = "https://data.cityofnewyork.us/";
@@ -21,6 +23,6 @@ public class RetrofitSchool {
     }
     public interface SchoolApiService{
         @GET
-
+        Call<SchoolResponse> getSchoolResponse(@Url String myUrl);
     }
 }
