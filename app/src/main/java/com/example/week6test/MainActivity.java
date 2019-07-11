@@ -1,6 +1,7 @@
 package com.example.week6test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -23,16 +24,23 @@ RecyclerView rvRecyclerView;
 
             @Override
             public void onResponse(Call<SchoolResponse> call, Response<SchoolResponse> response) {
-                
+
             }
 
             @Override
             public void onFailure(Call<SchoolResponse> call, Throwable t) {
 
             }
-        }
+        });
 
     }
+    private void populateSchoolRecyclerView(SchoolResponse schoolResponse) {
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        SchoolRecyclerViewAdapter adapter = new SchoolRecyclerViewAdapter();
+        rvRecyclerView.setLayoutManager(layoutManager);
+        rvRecyclerView.setAdapter(adapter);
+    }
+
 
 
 }
